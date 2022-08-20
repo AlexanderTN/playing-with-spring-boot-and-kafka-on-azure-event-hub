@@ -1,0 +1,28 @@
+spring:
+  profiles.active: myevent
+---
+spring:
+  profiles: myevent
+# if we disable spring boot autoconfigure for Kafka, we do not need to set the spring.kafka values any more, instead it will be override in each Consumer Configuration
+#  kafka:
+#    bootstrap-servers: "[::1]:9092"
+#    bootstrap-servers1: "[::1]:9092"
+#    bootstrap-servers2: "[::1]:9093"
+#    client-id: first-one
+
+demo1:
+  kafka:
+    bootstrap-servers: "[::1]:9092"
+    client-id: clientid1
+  topic:
+    name: topic1
+
+demo2:
+  kafka:
+    bootstrap-servers: "[::1]:9094"
+    client-id: clientid2
+  topic:
+    name: topic2
+
+topic:
+  name: oltpgwlogevent
