@@ -16,11 +16,15 @@ public class KafkaProducer {
     @Value("${topic.name}")
     private String topicName;
 
+    @Value("${demo1.topic.name}")
+    private String localTopicName;
+
     public void send(SimpleMessage message) {
         this.kafkaTemplate.send(topicName, message);
         log.info("Published the message [{}] to the kafka queue: [{}]",
                 message.getBody(),
                 topicName
         );
+        this.kafkaTemplate.send(localTopicName, message);
     }
 }
