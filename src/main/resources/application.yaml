@@ -19,10 +19,15 @@ demo1:
 
 demo2:
   kafka:
-    bootstrap-servers: "[::1]:9094"
+    bootstrap-servers: rulesdeveventhubs.servicebus.windows.net:9093
     client-id: clientid2
+    properties:
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://rulesdeveventhubs.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=sR0rb/eAqWT3DPPPJQEnUkzGnaHQdaY/E+vI+cqwA9k=";
+      sasl.mechanism: PLAIN
+      security.protocol: SASL_SSL
   topic:
-    name: topic2
+    name: oltpgwlogevent
+
 
 topic:
   name: oltpgwlogevent

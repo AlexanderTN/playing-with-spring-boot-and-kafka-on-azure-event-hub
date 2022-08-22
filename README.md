@@ -43,3 +43,5 @@ Then we will have 2 Kafka brokers running at the same WSL host.
 6. Consume the messages
    bin/kafka-console-consumer.sh --topic topic1 --from-beginning --bootstrap-server [::1]:9092
    bin/kafka-console-consumer.sh --topic topic2 --from-beginning --bootstrap-server [::1]:9094
+
+Important note: The Event hub consumer in this demo needs this file to work: C:\jdk1.8.0_202\jre\lib\security\cacerts (means that if you rename/remove it the listenner cannot listen)
